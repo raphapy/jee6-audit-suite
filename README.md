@@ -12,7 +12,7 @@ This suite provides the following:
 The audit mechanism is based on JEE6 Interceptors, so this suite is intended for use in an Java EE6 compliant application server to audit business methods implemented with technologies such as EJB and CDI.
 ##How to audit processes?
 ###Setting the environment.
-JPA Persistence Unit is required with the name "AuditorPU" that is bound to a Datasource configured with a user who has permissions to create audit scheme (a few tables).
+JPA Persistence Unit is required with the name "suiteAuditoriaPU" that is bound to a Datasource configured with a user who has permissions to create audit scheme (a few tables).
 <br>In the beans.xml file must be enabled Interceptor "ProcessAuditInterceptor".
 ###Defining audit targets.
 ####Example with EJB:
