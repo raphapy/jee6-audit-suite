@@ -10,11 +10,12 @@ This suite provides the following:
 * A simple REST API for access to audit data.
 
 The audit mechanism is based on JEE6 Interceptors, so this suite is intended for use in an Java EE6 compliant application server to audit business methods implemented with technologies such as EJB and CDI.
-##Como auditar procesos?
-###Configurando el entorno.
-Se requiere una Unidad de Persistencia JPA con el nombre "AuditorPU" que se encuentre enlazado a un Datasource configurado con un usuario que tenga permisos para crear el esquema de auditoria(unas pocas tablas).
-###Definiendo objetivos de auditoria
-####Ejemplo con EJB:
+##How to audit processes?
+###Setting the environment.
+JPA Persistence Unit is required with the name "AuditorPU" that is bound to a Datasource configured with a user who has permissions to create audit scheme (a few tables).
+<br>In the beans.xml file must be enabled Interceptor "py.com.konecta.suiteauditoria.DefaultAuditInterceptor".
+###Defining audit targets.
+####Example with EJB:
 ```java
 @Stateless
 public class MyEJBService {
@@ -43,7 +44,7 @@ public class MyEJBService {
     }
 }
 ```
-####Ejemplo con CDI:
+####Example with CDI:
 ```java
 @RequestScoped
 public class MyCDIBean {
