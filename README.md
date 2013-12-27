@@ -13,7 +13,7 @@ The audit mechanism is based on JEE6 Interceptors, so this suite is intended for
 ##How to audit processes?
 ###Setting the environment.
 JPA Persistence Unit is required with the name "AuditorPU" that is bound to a Datasource configured with a user who has permissions to create audit scheme (a few tables).
-<br>In the beans.xml file must be enabled Interceptor "py.com.konecta.suiteauditoria.DefaultAuditInterceptor".
+<br>In the beans.xml file must be enabled Interceptor "ProcessAuditInterceptor".
 ###Defining audit targets.
 ####Example with EJB:
 ```java
