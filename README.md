@@ -60,7 +60,7 @@ public class MyCDIBean {
     
     @Process(name="Example Name for Process")
     @Interceptors({ProcessAuditInterceptor.class})
-    public Output businessMethodCallerInCDI(Input i) {
+    public Output callBusinessMethod(Input i) {
       
       //This method is a defined process but in this case is an activity
       s.otherBusinessMethod(i);
