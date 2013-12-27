@@ -1,0 +1,13 @@
+/Proyecto/suite-auditoria-4ejb/suite-auditoria-restful-api/src/main/webapp/WEB-INF/faces-config.xml
+/.metadata/*
+*~
+.classpath
+.project
+target
+.settings
+.DS_Store
+.faces-config.xml.jsfdia
+MANIFEST.MF
+.idea
+*.iml
+

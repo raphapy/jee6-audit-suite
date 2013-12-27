@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>py.com.konecta.tools</groupId>
+		<artifactId>jee6-audit-suite</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>jee6-audit-suite-rest-api</artifactId>
+	<name>jee6 audit suite - rest api</name>
+	<packaging>war</packaging>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${version.war.plugin}</version>
+				<configuration>
+					<!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+		
+		<!-- Deploya war en el jboss -->
+		<pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jboss.as.plugins</groupId>
+                    <artifactId>jboss-as-maven-plugin</artifactId>
+                    <version>7.4.Final</version>
+                    <configuration><skip>false</skip></configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+  			<groupId>py.com.konecta</groupId>
+  			<artifactId>rest-api-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>py.com.konecta</groupId>
+			<artifactId>utiles-commons</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>py.com.konecta.tools</groupId>
+			<artifactId>jee6-audit-suite-service</artifactId>
+		</dependency>
+	</dependencies>
+</project>
