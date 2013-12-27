@@ -1,6 +1,6 @@
 #jee6-audit-suite
 A simple suite for auditing tasks of business methods based in Java EE6.
-##Abstract
+###Abstract
 For the auditor, business method represents a "Process" and, in turn, business methods invoked from the "Process" are known as "Activities of the process".
 <br>The audit of a process results in the persistence of a "process instance and its related activities." Each activity is stored along with its input, output and stack trace (if exceptions occur at runtime). The input, output and stack trace are serialized to JSON and stored in binary representation.
 ###Features:
@@ -53,7 +53,7 @@ public class MyCDIBean {
     MyEJBService s;
     
     @Process(name="Example Name for Process")
-    public Output businessMethodInCDI(Input i) {
+    public Output businessMethodCallerInCDI(Input i) {
       
       //This method is a defined process but in this case is, implicitly, an activity
       s.otherBusinessMethod(i);
