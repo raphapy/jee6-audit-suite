@@ -62,8 +62,7 @@ public class MyCDIBean {
     } 
 }
 ```
-
-License
-----
-
-APACHE v2.0
+###Releases:
+This tool is still in development. Soon will come the first release candidate.
+###License
+Apache v2.0
