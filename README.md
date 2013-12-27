@@ -24,13 +24,18 @@ public class MyEJBService {
     MyEJBService s;
     
     @Process(name="Example Name for Process")
+    @Interceptors({ProcessAuditInterceptor.class})
     public Output businessMethod(Input i) {
       //This method is a defined process but in this case is, implicitly, an activity
       s.otherBusinessMethod(i);
       
     }
     
+    /*Business methods can be Process and Activity while. 
+    The auditor detect the entry point of audit task to determine the role of business method*/
     @Process(name="Example Name for another Process")
+    @Activity
+    @Interceptors({ProcessAuditInterceptor.class})
     public void otherBusinessMethod(Input i) {
       ...
       //here, an activity of this process is called
@@ -38,7 +43,8 @@ public class MyEJBService {
     }
     
     
-    @Activity(name="Optional Name for acivity")
+    @Activity
+    @Interceptors({ProcessAuditInterceptor.class})
     public Output doSomething(Input i) {
       ...
     }
@@ -53,9 +59,10 @@ public class MyCDIBean {
     MyEJBService s;
     
     @Process(name="Example Name for Process")
+    @Interceptors({ProcessAuditInterceptor.class})
     public Output businessMethodCallerInCDI(Input i) {
       
-      //This method is a defined process but in this case is, implicitly, an activity
+      //This method is a defined process but in this case is an activity
       s.otherBusinessMethod(i);
       //call of process activity
       s.doSomething(i);
